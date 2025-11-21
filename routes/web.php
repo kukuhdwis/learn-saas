@@ -11,6 +11,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
+
+    Route::get('projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
 });
 
 require __DIR__.'/settings.php';
