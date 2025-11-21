@@ -32,6 +32,7 @@ export default function InvoicesIndex({ invoices }: { invoices: any[] }) {
                                             <th className="px-4 py-2">Amount</th>
                                             <th className="px-4 py-2">Status</th>
                                             <th className="px-4 py-2">Date</th>
+                                            <th className="px-4 py-2">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -46,6 +47,16 @@ export default function InvoicesIndex({ invoices }: { invoices: any[] }) {
                                                     </span>
                                                 </td>
                                                 <td className="px-4 py-2">{invoice.issue_date}</td>
+                                                <td className="px-4 py-2">
+                                                    <a
+                                                        href={route('invoices.download', invoice.id)}
+                                                        className="text-blue-600 hover:underline"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        Download PDF
+                                                    </a>
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>

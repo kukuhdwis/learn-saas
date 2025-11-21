@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoiceController extends Controller
 {
@@ -68,5 +69,11 @@ class InvoiceController extends Controller
         }
 
         return redirect()->route('invoices.index');
+    }
+    public function download(Invoice $invoice)
+    {
+        $invoice->load(['client', 'items']);
+        $pdf = Pdf::loadView('invoices.pdf', compact('invoice'));
+        return $pdf->download('invoice-' . $invoice->number . '.pdf');
     }
 }
