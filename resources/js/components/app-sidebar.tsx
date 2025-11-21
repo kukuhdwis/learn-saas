@@ -23,6 +23,11 @@ const mainNavItems: NavItem[] = [
         href: '/invoices',
         icon: BookOpen,
     },
+    {
+        title: 'Tools',
+        href: '/tools',
+        icon: LayoutGrid,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
