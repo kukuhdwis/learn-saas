@@ -13,6 +13,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::get('projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
+    Route::get('invoices', [App\Http\Controllers\InvoiceController::class, 'index'])->name('invoices.index');
 });
 
 require __DIR__.'/settings.php';
